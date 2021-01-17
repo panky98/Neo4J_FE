@@ -279,7 +279,6 @@ namespace DataLayer
         }
         #endregion
 
-
         #region Projekat
 
         public static IList<Projekat> vratiSveProjekte()
@@ -723,8 +722,6 @@ namespace DataLayer
         }
 
         #endregion
-
-
 
         #region Nagrada
 
