@@ -21,7 +21,7 @@ namespace Neo4J_BE.Controllers
                 return new JsonResult(DataLayer.DataProvider.VratiSveRadiNa());
 
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -30,7 +30,7 @@ namespace Neo4J_BE.Controllers
 
         [HttpGet]
         [Route("vratiSveZaposleneNaProjektu/{idProjekta}")]
-        public IActionResult VratiSveRadiNa([FromRoute(Name ="idProjekta")]int idProjekta)
+        public IActionResult VratiSveRadiNa([FromRoute(Name = "idProjekta")] int idProjekta)
         {
             try
             {
@@ -62,16 +62,16 @@ namespace Neo4J_BE.Controllers
 
         [HttpPost]
         [Route("dodajProjekatZaposlenom/{idProjekta}/{idZaposlenog}")]
-        public IActionResult DodajProjekatZaposlenom([FromRoute(Name ="idProjekta")]int idProjekta,
-            [FromRoute(Name ="idZaposlenog")]int idZaposlenog,
-            [FromBody]RadiNa radiNa)
+        public IActionResult DodajProjekatZaposlenom([FromRoute(Name = "idProjekta")] int idProjekta,
+            [FromRoute(Name = "idZaposlenog")] int idZaposlenog,
+            [FromBody] RadiNa radiNa)
         {
             try
             {
                 DataLayer.DataProvider.DodajProjekatZaposlenom(idProjekta, idZaposlenog, radiNa);
                 return Ok();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -79,7 +79,7 @@ namespace Neo4J_BE.Controllers
 
         [HttpPut]
         [Route("izmeniRadiNa")]
-        public IActionResult IzmeniRadiNa([FromBody]RadiNa radiNa)
+        public IActionResult IzmeniRadiNa([FromBody] RadiNa radiNa)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace Neo4J_BE.Controllers
 
         [HttpDelete]
         [Route("obrisiRadiNaZaZaposlenog/{idZaposlenog}")]
-        public IActionResult ObrisiRadiNaZaZaposlenog([FromRoute(Name ="idZaposlenog")]int idZaposlenog)
+        public IActionResult ObrisiRadiNaZaZaposlenog([FromRoute(Name = "idZaposlenog")] int idZaposlenog)
         {
             try
             {

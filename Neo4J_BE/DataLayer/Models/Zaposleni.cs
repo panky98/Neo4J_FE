@@ -14,12 +14,5 @@ namespace DataLayer.Models
 
         public IList<Zaposlen> listaFirmi { get; set; }
 
-        public IList<Projekat> Projekti { get; set; }
-
-        public Zaposleni()
-        {
-            Projekti = new List<Projekat>();
-        }
-
     }
 }

@@ -5254,11 +5254,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
+      "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
       "projectName": "Neo4J_BE",
-      "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
+      "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
       "packagesPath": "C:\\Users\\dusan\\.nuget\\packages\\",
-      "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\obj\\",
+      "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -5277,8 +5277,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj"
+            "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj"
             }
           }
         }

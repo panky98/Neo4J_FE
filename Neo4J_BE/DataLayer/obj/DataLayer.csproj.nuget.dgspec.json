@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {}
+    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
+    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+        "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
         "packagesPath": "C:\\Users\\dusan\\.nuget\\packages\\",
-        "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\obj\\",
+        "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\MilosDusanLenaBE\\Neo4J_BE\\Neo4J_BE\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

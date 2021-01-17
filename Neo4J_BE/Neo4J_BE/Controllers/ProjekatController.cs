@@ -4,113 +4,114 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataLayer;
 using DataLayer.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Neo4J_BE.Controllers
 {
-    [Route("[controller]")]
-    [ApiController]
-    public class ProjekatController : ControllerBase
-    {
-        [HttpGet]
-        [Route("vratiSveProjekte")]
-        public IActionResult VratiSveProjekte()
+    
+        [Route("[controller]")]
+        [ApiController]
+        public class ProjekatController : ControllerBase
         {
-            try
+            [HttpGet]
+            [Route("vratiSveProjekte")]
+            public IActionResult VratiSveProjekte()
             {
-                return new JsonResult(DataLayer.DataProvider.vratiSveProjekte());
+                try
+                {
+                    return new JsonResult(DataLayer.DataProvider.vratiSveProjekte());
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
             }
-            catch(Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
 
-        [HttpGet]
-        [Route("vratiSveGotoveProjekte")]
-        public IActionResult VratiSveGotoveProjekte()
-        {
-            try
+            [HttpGet]
+            [Route("vratiSveGotoveProjekte")]
+            public IActionResult VratiSveGotoveProjekte()
             {
-                return new JsonResult(DataLayer.DataProvider.vratiSveGotoveProjekte(true));
+                try
+                {
+                    return new JsonResult(DataLayer.DataProvider.vratiSveGotoveProjekte(true));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
 
-        [HttpGet]
-        [Route("vratiSveTrenutneProjekte")]
-        public IActionResult VratiSveTrenutneProjekte()
-        {
-            try
+            [HttpGet]
+            [Route("vratiSveTrenutneProjekte")]
+            public IActionResult VratiSveTrenutneProjekte()
             {
-                return new JsonResult(DataLayer.DataProvider.vratiSveGotoveProjekte(false));
+                try
+                {
+                    return new JsonResult(DataLayer.DataProvider.vratiSveGotoveProjekte(false));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
 
-        [HttpGet]
-        [Route("vratiProjekat/{idProjekta}")]
-        public IActionResult VratiProjekat([FromRoute(Name ="idProjekta")] int idProjekta)
-        {
-            try
+            [HttpGet]
+            [Route("vratiProjekat/{idProjekta}")]
+            public IActionResult VratiProjekat([FromRoute(Name = "idProjekta")] int idProjekta)
             {
-                return new JsonResult(DataLayer.DataProvider.vratiProjekat(idProjekta));
+                try
+                {
+                    return new JsonResult(DataLayer.DataProvider.vratiProjekat(idProjekta));
+                }
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.ToString());
+                }
             }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
 
-        [HttpPost]
-        [Route("dodajProjekat")]
-        public IActionResult DodajProjekat([FromBody]Projekat projekat)
-        {
-            try
+            [HttpPost]
+            [Route("dodajProjekat")]
+            public IActionResult DodajProjekat([FromBody] Projekat projekat)
             {
-                DataProvider.dodajProjekat(projekat);
-                return Ok();
+                try
+                {
+                    DataProvider.dodajProjekat(projekat);
+                    return Ok();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.ToString());
+                }
             }
-            catch(Exception e)
-            {
-                return BadRequest(e.ToString());
-            }
-        }
 
-        [HttpPut]
-        [Route("izmeniProjekat")]
-        public IActionResult IzmeniProjekat([FromBody]Projekat projekat)
-        {
-            try
+            [HttpPut]
+            [Route("izmeniProjekat")]
+            public IActionResult IzmeniProjekat([FromBody] Projekat projekat)
             {
-                DataProvider.izmeniProjekat(projekat);
-                return Ok();
+                try
+                {
+                    DataProvider.izmeniProjekat(projekat);
+                    return Ok();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.ToString());
+                }
             }
-            catch(Exception e)
+            [HttpDelete]
+            [Route("obrisiProjekat/{idProjekta}")]
+            public IActionResult ObrisiProjekat([FromRoute(Name = "idProjekta")] int idProjekta)
             {
-                return BadRequest(e.ToString());
-            }
-        }
-        [HttpDelete]
-        [Route("obrisiProjekat/{idProjekta}")]
-        public IActionResult ObrisiProjekat([FromRoute(Name ="idProjekta")]int idProjekta)
-        {
-            try
-            {
-                DataProvider.obrisiProjekat(idProjekta);
-                return Ok();
-            }
-            catch(Exception e)
-            {
-                return BadRequest(e.ToString());
+                try
+                {
+                    DataProvider.obrisiProjekat(idProjekta);
+                    return Ok();
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.ToString());
+                }
             }
         }
     }
-}
+

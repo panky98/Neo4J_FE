@@ -21,9 +21,9 @@ namespace Neo4J_BE.Controllers
             {
                 var pripadanja = DataLayer.DataProvider.VratiSvePripada();
                 return new JsonResult(pripadanja);
-                
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -31,7 +31,7 @@ namespace Neo4J_BE.Controllers
 
         [HttpGet]
         [Route("vratiProjekteFirme/{idFirme}")]
-        public IActionResult VratiProjekteFirme([FromRoute(Name ="idFirme")]int idFirme)
+        public IActionResult VratiProjekteFirme([FromRoute(Name = "idFirme")] int idFirme)
         {
             try
             {
@@ -39,7 +39,7 @@ namespace Neo4J_BE.Controllers
 
                 return new JsonResult(projekti);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -63,9 +63,9 @@ namespace Neo4J_BE.Controllers
 
         [HttpPost]
         [Route("dodajProjekatFirmi/{nazivProjekta}/{nazivFirme}")]
-        public IActionResult DodajProjekatFirmi([FromRoute(Name ="nazivProjekta")]string nazivProjekta,
+        public IActionResult DodajProjekatFirmi([FromRoute(Name = "nazivProjekta")] string nazivProjekta,
             [FromRoute(Name = "nazivFirme")] string nazivFirme,
-            [FromBody]Pripada pripada)
+            [FromBody] Pripada pripada)
         {
             try
             {
@@ -80,14 +80,14 @@ namespace Neo4J_BE.Controllers
 
         [HttpPut]
         [Route("izmeniPripada")]
-        public IActionResult IzmeniPripada([FromBody]Pripada pripada)
+        public IActionResult IzmeniPripada([FromBody] Pripada pripada)
         {
             try
             {
                 DataLayer.DataProvider.IzmeniPripada(pripada);
                 return Ok();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -95,14 +95,14 @@ namespace Neo4J_BE.Controllers
 
         [HttpDelete]
         [Route("obrisiPripadaZaFirmu/{idFirme}")]
-        public IActionResult ObrisiPripadaZaFirmu([FromRoute(Name = "idFirme")]int idFirme)
+        public IActionResult ObrisiPripadaZaFirmu([FromRoute(Name = "idFirme")] int idFirme)
         {
             try
             {
                 DataLayer.DataProvider.ObrisiPripadaZaDatuFirmu(idFirme);
                 return Ok();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 return BadRequest(e.ToString());
             }
@@ -133,6 +133,21 @@ namespace Neo4J_BE.Controllers
                 return Ok();
             }
             catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+        }
+
+        [HttpDelete]
+        [Route("obrisiPripadaZaProjekatIFirmu/{idFirme}/{idProjekta}")]
+        public IActionResult ObrisiPripadaZaProjekatIFirmu([FromRoute(Name ="idFirme")]int idFirme, [FromRoute(Name ="idProjekta")]int idProjekta)
+        {
+            try
+            {
+                DataLayer.DataProvider.ObrisiPripadaZaProjekatIFirmu(idProjekta, idFirme);
+                return Ok();
+            }
+            catch(Exception e)
             {
                 return BadRequest(e.ToString());
             }
