@@ -38,14 +38,20 @@
 }
 
 .lds-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 100%;
+  z-index: 500000;
+  top: 0;
+  background-color: rgba(0,0,0,.288);
+  opacity: 1;
+  position: fixed;
+  display: block;
+  height: 100%;
 }
 .lds-dual-ring {
   display: inline-block;
   width: 80px;
   height: 80px;
+  margin: 25% 50%;
 }
 .lds-dual-ring:after {
   content: " ";

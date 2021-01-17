@@ -17,6 +17,17 @@ function NavBar() {
               Projekti
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/firme">
+              Firme
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/zaposleni">
+              Zaposleni
+            </NavLink>
+          </li>
           
         </ul>
       </nav>

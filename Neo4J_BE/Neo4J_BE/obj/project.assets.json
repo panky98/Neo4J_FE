@@ -1574,7 +1574,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
-      "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "sha512": "bLpT1f/SFlO1CzqXG12KnJzpZs6lv24uX2Rzi4Fmm0noJpNlnWRVryuO3yK18Ca04t/YHcO1e1Z0WDfjseqNzw==",
       "type": "package",
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
@@ -5248,23 +5248,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dusan\\.nuget\\packages\\": {},
+    "C:\\Users\\MilosPanic\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
+      "projectUniqueName": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
       "projectName": "Neo4J_BE",
-      "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
-      "packagesPath": "C:\\Users\\dusan\\.nuget\\packages\\",
-      "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\Neo4J_BE\\obj\\",
+      "projectPath": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\Neo4J_BE\\Neo4J_BE.csproj",
+      "packagesPath": "C:\\Users\\MilosPanic\\.nuget\\packages\\",
+      "outputPath": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\Neo4J_BE\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dusan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MilosPanic\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5277,8 +5277,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj"
+            "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj"
             }
           }
         }

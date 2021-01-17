@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {}
+    "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
+    "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\dusan\\.nuget\\packages\\",
-        "outputPath": "C:\\4.godina\\Napredne baze podataka\\NEO4J\\ITYELLOWPAGES\\Neo4J_BE\\DataLayer\\obj\\",
+        "projectPath": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\MilosPanic\\.nuget\\packages\\",
+        "outputPath": "E:\\IV godina RI\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\dusan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\MilosPanic\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

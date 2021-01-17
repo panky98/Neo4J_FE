@@ -27,6 +27,7 @@ namespace Neo4J_BE.Controllers
             }
         }
 
+
         [HttpGet]
         [Route("vratiSveZaposlenePrekoNazivaFirme/{nazivFirme}")]
         public IActionResult vratiSveZaposleneSaNazivomFirme([FromRoute(Name ="nazivFirme")]string nazivFirme)
@@ -56,6 +57,20 @@ namespace Neo4J_BE.Controllers
         }
 
         [HttpGet]
+        [Route("vratiSveZaposlenePrekoIdFirmeTrenutnoZaposleni/{idFirme}")]
+        public IActionResult vratiSveZaposlenePrekoIdFirmeTrenutnoZaposleni([FromRoute(Name = "idFirme")] int idFirme)
+        {
+            try
+            {
+                return new JsonResult(DataProvider.vratiTrenutnoZaposleneFirme(idFirme));
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpGet]
         [Route("vraziZaposlenog/{idZaposlenog}")]
         public IActionResult vratiZaposlenog([FromRoute(Name = "idZaposlenog")] int idZaposlenog)
         {
@@ -76,6 +91,35 @@ namespace Neo4J_BE.Controllers
             try
             {
                 DataProvider.dodajZaposlenog(z);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+        [HttpPut]
+        [Route("promeniRadnomesto/{idZaposlenog}/{idFirme}/{pozicija}")]
+        public IActionResult promeniRadnomesto([FromRoute(Name ="idZaposlenog")] int idZaposlenog, [FromRoute(Name = "idFirme")] int idFirme, [FromRoute(Name = "pozicija")] string pozicija)
+        {
+            try
+            {
+                DataProvider.promeniRadnoMesto(idZaposlenog,idFirme,pozicija);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.ToString());
+            }
+        }
+
+        [HttpPost]
+        [Route("kreirajZaposlenogSaPodacima")]
+        public IActionResult kreirajZaposlenogIZAPOSLEN([FromBody] ZaposleniCreate z)
+        {
+            try
+            {
+                DataProvider.dodajZaposlenogSaVezom(z);
                 return Ok();
             }
             catch (Exception ex)
