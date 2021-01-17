@@ -5,11 +5,14 @@ import './App.css';
 
 //components
 import Projekti from './components/Projekti.js';
+import Projekat from './components/Projekat.js';
 import NavBar from './components/NavBar.js';
 import Error from './components/Error.js';
 import Home from './components/Home.js';
 import Firme from './components/Firme.js';
 import Zaposleni from './components/Zaposleni';
+import Nagrade from './components/Nagrade.js';
+
 
 
 function App() {
@@ -20,9 +23,15 @@ function App() {
       <Route exact path="/">
         <Home/>
       </Route>
+	  
+	  <Route exact path="/projekti/:id" component={Projekat}></Route>
 
       <Route path="/firme">
         <Firme/>
+      </Route>
+	  
+	  <Route path="/nagrade">
+        <Nagrade/>
       </Route>
 
       <Route path="/projekti">

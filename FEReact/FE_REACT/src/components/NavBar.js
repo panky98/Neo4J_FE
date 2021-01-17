@@ -28,6 +28,12 @@ function NavBar() {
               Zaposleni
             </NavLink>
           </li>
+		  
+		  <li>
+            <NavLink to="/nagrade">
+              Nagrade
+            </NavLink>
+          </li>
           
         </ul>
       </nav>
