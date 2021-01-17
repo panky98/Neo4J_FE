@@ -8,7 +8,6 @@ using System.Text;
 
 namespace DataLayer
 {
-    
     public static class DataProvider
     {
         private static int getMaxId()
@@ -31,11 +30,6 @@ namespace DataLayer
 
             List<Zaposleni> zaposleni = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Zaposleni>(query).ToList();
 
-            //Dusan:
-            foreach(var z in zaposleni)
-            {
-                z.Projekti = DataProvider.VratiSveProjekteZaposlenog(z.id);
-            }
 
             foreach(var z in zaposleni)
             {
@@ -70,11 +64,7 @@ namespace DataLayer
 
             List<Zaposleni> zaposleni = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Zaposleni>(query).ToList();
 
-            foreach (var z in zaposleni)
-            {
-                z.Projekti = DataProvider.VratiSveProjekteZaposlenog(z.id);
-            }
-
+            
             return zaposleni;
         }
 
@@ -89,10 +79,7 @@ namespace DataLayer
                                                queryDict, CypherResultMode.Set);
 
             List<Zaposleni> zaposleni = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Zaposleni>(query).ToList();
-            foreach (var z in zaposleni)
-            {
-                z.Projekti = DataProvider.VratiSveProjekteZaposlenog(z.id);
-            }
+
 
             return zaposleni;
         }
@@ -124,8 +111,6 @@ namespace DataLayer
                                                queryDict, CypherResultMode.Set);
 
             Zaposleni zaposleni = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Zaposleni>(query).SingleOrDefault();
-
-            zaposleni.Projekti = DataProvider.VratiSveProjekteZaposlenog(zaposleni.id);
 
             return zaposleni;
         }
@@ -198,13 +183,6 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("idZaposlenog", idZaposlenog);
 
-            //obrisi prvo sve veze zaposlenog
-
-            //RADI_NA
-            DataProvider.ObrisiRadiNaZaZaposlenog(idZaposlenog);
-
-            //
-
             var query = new Neo4jClient.Cypher.CypherQuery("MATCH(n: Zaposleni) WHERE n.id= {idZaposlenog} DELETE n",
                                                             queryDict, CypherResultMode.Set);
 
@@ -237,12 +215,6 @@ namespace DataLayer
             List<Firma> firme = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Firma>(query).ToList();
 
 
-            //Dusan:
-            foreach(var f in firme)
-            {
-                f.Projekti=DataLayer.DataProvider.VratiSveProjekteDateFirme(f.id);
-            }
-
             return firme;
         }
 
@@ -254,14 +226,6 @@ namespace DataLayer
                                    queryDict, CypherResultMode.Set);
 
             List<Firma> firme = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Firma>(query).ToList();
-
-
-            //Dusan:
-            foreach (var f in firme)
-            {
-                f.Projekti = DataLayer.DataProvider.VratiSveProjekteDateFirme(f.id);
-            }
-
             return firme;
         }
 
@@ -284,13 +248,6 @@ namespace DataLayer
         public static void obrisiFirmu(int idFirme)
         {
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
-
-            //Dusan:Prvo je potrebno obrisati sve potege date firme...brisem samo PRIPADA za projekat
-
-            DataProvider.ObrisiPripadaZaDatuFirmu(idFirme);
-
-            //
-
             queryDict.Add("idFirme", idFirme);
 
             var query = new Neo4jClient.Cypher.CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
@@ -315,23 +272,13 @@ namespace DataLayer
         //LINQ
         public static Firma vratiFirmuLINQID(int idFirme)
         {
-            //Dusan:
-
-           /* return Session.Client.Cypher.Match("(n:Firma)")
-                .Where((Firma n) => n.id == idFirme)
-                .Return(n => n.As<Firma>())
-                .Results.FirstOrDefault();*/
-
-            Firma firma= Session.Client.Cypher.Match("(n:Firma)")
+            return Session.Client.Cypher.Match("(n:Firma)")
                 .Where((Firma n) => n.id == idFirme)
                 .Return(n => n.As<Firma>())
                 .Results.FirstOrDefault();
-
-            firma.Projekti = DataProvider.VratiSveProjekteDateFirme(firma.id);
-
-            return firma;
         }
         #endregion
+
 
         #region Projekat
 
@@ -345,7 +292,7 @@ namespace DataLayer
                 .ExecuteGetCypherResults<Projekat>(query)
                 .ToList();
 
-            foreach(var projekat in sviProjekti)
+            foreach (var projekat in sviProjekti)
             {
                 projekat.FirmeNaProjektu = DataProvider.VratiFirmeKojeRadeNaProjektu(projekat.id);
                 projekat.ZaposleniNaProjektu = DataProvider.VratiSveZaposleneNaProjektu(projekat.id);
@@ -357,7 +304,7 @@ namespace DataLayer
         public static IList<Projekat> vratiSveGotoveProjekte(bool gotovi)
         {
             CypherQuery query;
-            if(gotovi==true)
+            if (gotovi == true)
             {
                 query = new Neo4jClient.Cypher
                 .CypherQuery("match (p:Projekat) WHERE exists(p.datum_do) return p;",
@@ -385,7 +332,7 @@ namespace DataLayer
 
         public static Projekat vratiProjekat(int idProjekta)
         {
-            Projekat projekat= Session.Client.Cypher.Match("(p:Projekat)")
+            Projekat projekat = Session.Client.Cypher.Match("(p:Projekat)")
                 .Where((Projekat p) => p.id == idProjekta)
                 .Return(p => p.As<Projekat>())
                 .Results.FirstOrDefault();
@@ -443,10 +390,10 @@ namespace DataLayer
             else
                 query = new Neo4jClient.Cypher.CypherQuery("MATCH (p:Projekat {id:{id}}) SET p={id:{id},naziv: {naziv}, opis:{opis},datum_od:{datum_od}} return p",
                                                            queryDictionary, CypherResultMode.Set);
-            
+
             ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Projekat>(query);
 
-            
+
         }
 
         public static void obrisiProjekat(int id)
@@ -483,7 +430,7 @@ namespace DataLayer
                 .Return((f, p, r) => new
                 {
                     Firma = f.As<Firma>(),
-                   Projekat = p.As<Projekat>(),
+                    Projekat = p.As<Projekat>(),
                     Pripada = r.As<Pripada>()
                 })
                 .Results.ToList();
@@ -517,7 +464,7 @@ namespace DataLayer
         public static void DodajPripada(string nazivFirme, string nazivProjekta, Pripada pripada)
         {
             pripada.id = DataProvider.getMaxId() + 1;
-            var query =Session.Client.Cypher
+            var query = Session.Client.Cypher
                         .Match("(f:Firma)", "(p:Projekat)")
                         .Where((Firma f) => f.naziv == nazivFirme)
                         .AndWhere((Projekat p) => p.naziv == nazivProjekta)
@@ -579,6 +526,18 @@ namespace DataLayer
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
 
+        public static void ObrisiPripadaZaProjekatIFirmu(int idProjekta, int idFirme)
+        {
+            //match(f: Firma { id: 1})-[r: PRIPADA] - (p: Projekat { id: 10}) delete r
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idProjekta", idProjekta);
+            queryDict.Add("idFirme", idFirme);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("match(f: Firma { id: {idFirme}})-[r: PRIPADA] - (p: Projekat { id: {idProjekta}}) delete r",
+                                                            queryDict, CypherResultMode.Set);
+            ObrisiRadiNaZaDatiProjekat(idFirme);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
         public static void ObrisiPripada(int id)
         {
 
@@ -602,12 +561,12 @@ namespace DataLayer
             //match (z:Zaposleni)-[r:RADI_NA]-(p:Projekat) return z, r, p;
             var obj = Session.Client.Cypher
                 .Match("(z:Zaposleni)-[r:RADI_NA]-(p:Projekat)")
-                .Return((z,r, p) => new
+                .Return((z, r, p) => new
                 {
-                    Zaposleni=z.As<Zaposleni>(),
-                    RadiNa=r.As<RadiNa>(),
-                    Projekat=p.As<Projekat>()
-                    
+                    Zaposleni = z.As<Zaposleni>(),
+                    RadiNa = r.As<RadiNa>(),
+                    Projekat = p.As<Projekat>()
+
                 })
                 .Results.ToList();
 
@@ -624,7 +583,7 @@ namespace DataLayer
             var query = new Neo4jClient.Cypher.CypherQuery("match (z:Zaposleni)-[r:RADI_NA]-(p:Projekat {id:{id}}) return z",
                 queryDict, CypherResultMode.Set);
 
-           
+
             List<Zaposleni> zaposleni = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Zaposleni>(query).ToList();
             return zaposleni;
         }
@@ -673,8 +632,8 @@ namespace DataLayer
                 queryDictionary.Add("datum_do", radiNa.datum_do);
 
                 query = new Neo4jClient.Cypher
-                    .CypherQuery("MATCH (a:Zaposleni),(b:Projekat) "+
-                                 "WHERE a.id = {idZaposlenog} AND b.id = {idProjekta} "+
+                    .CypherQuery("MATCH (a:Zaposleni),(b:Projekat) " +
+                                 "WHERE a.id = {idZaposlenog} AND b.id = {idProjekta} " +
                                 "CREATE(a) -[r: RADI_NA {id:{id}, datum_od: {datum_od}, datum_do:{datum_do} }]->(b)",
                                                            queryDictionary, CypherResultMode.Set);
             }
@@ -711,7 +670,7 @@ namespace DataLayer
                                                            queryDictionary, CypherResultMode.Set);
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
-         
+
 
         public static void ObrisiRadiNaZaZaposlenog(int idZaposlenog)
         {
@@ -726,10 +685,22 @@ namespace DataLayer
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
 
+        public static void ObrisiRadiNaZaZaposlenogIProjekat(int idZaposlenog, int idProjekta)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idZaposlenog", idZaposlenog);
+            queryDict.Add("idProjekta", idProjekta);
+
+            var query = new Neo4jClient.Cypher.CypherQuery("match (z:Zaposleni {id:{idZaposlenog}})-[r:RADI_NA]-(p:Projekat {id:{idProjekta}} ) delete r",
+                                                            queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
         public static void ObrisiRadiNaZaDatiProjekat(int id)
         {
 
-           
+
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("id", id);
 
@@ -752,5 +723,181 @@ namespace DataLayer
         }
 
         #endregion
+
+
+
+        #region Nagrada
+
+        public static IList<Nagrada> vratiSveNagrade()
+        {
+            var query = new CypherQuery("MATCH (n:Nagrada) RETURN n",
+                                   new Dictionary<string, object>(), CypherResultMode.Set);
+
+            List<Nagrada> nagrade = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Nagrada>(query).ToList();
+
+            foreach(Nagrada n in nagrade)
+            {
+                n.firme = (List<Firma>)vratiSveFirmeKojeSuOsvojileNagradu(n.id);
+            }
+
+            return nagrade;
+        }
+
+        public static IList<Nagrada> vratiNagradePoNazivu(String naziv)
+        {
+            String nazivNagrade = ".*" + naziv + ".*";
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("nazivNagrade", nazivNagrade);
+
+            var query1 = new CypherQuery("match (n: Nagrada) where n.naziv =~ {nazivNagrade} " +
+                "return n", queryDict, CypherResultMode.Set);
+
+            List<Nagrada> nagrade = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Nagrada>(query1).ToList();
+
+            foreach (Nagrada n in nagrade)
+            {
+                n.firme = (List<Firma>)vratiSveFirmeKojeSuOsvojileNagradu(n.id);
+            }
+
+            return nagrade;
+        }
+
+        public static void dodajNagradu(Nagrada nagrada)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", getMaxId() + 1);
+            queryDict.Add("naziv", nagrada.naziv);
+            queryDict.Add("kategorija", nagrada.kategorija);
+
+            DateTime onlyDate = nagrada.datum.Date;
+            String lala = nagrada.datum.Date.ToShortDateString();
+            String nagradaaa = nagrada.datum.ToShortDateString();
+
+            queryDict.Add("datum", nagrada.datum.Date.ToShortDateString());
+
+            var query = new CypherQuery("create (n:Nagrada {id:{id}, naziv:{naziv}, " +
+                "kategorija:{kategorija}, datum:{datum}}) return n",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Nagrada>(query);
+        }
+
+        public static void izmeniNagradu(Nagrada nagrada)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", nagrada.id);
+            queryDict.Add("naziv", nagrada.naziv);
+            queryDict.Add("kategorija", nagrada.kategorija);
+            queryDict.Add("datum", nagrada.datum);
+
+            var query = new CypherQuery("MATCH (n:Nagrada {id:{id}}) " +
+                "SET n={id:{id},naziv: {naziv}, kategorija:{kategorija}," +
+                "datum:{datum}} return n",
+                                                queryDict, CypherResultMode.Set);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+
+        public static void obrisiNagradu(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+
+            var query = new CypherQuery("MATCH(n: Nagrada) WHERE n.id= {id} DELETE n",
+                                                            queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+        #endregion
+
+        #region Osvojila
+
+        public static IList<Nagrada> vratiSveOsvojeneNagrade()
+        {
+            var query = new CypherQuery("match (f:Firma)-[r:OSVOJILA]->(n:Nagrada) return n",
+                 new Dictionary<string, object>(), CypherResultMode.Set);
+
+            List<Nagrada> osvojeneNagrade = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Nagrada>(query).ToList();
+
+            foreach (Nagrada n in osvojeneNagrade)
+            {
+                n.firme = (List<Firma>)vratiSveFirmeKojeSuOsvojileNagradu(n.id);
+            }
+
+            return osvojeneNagrade;
+        }
+
+        public static IList<Nagrada> vratiSveNagradeKojeJeOsvojilaFirma(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+           
+            var query = new CypherQuery("match (f:Firma{id:{id}})-[r:OSVOJILA]->(n:Nagrada) return n",
+                queryDict, CypherResultMode.Set);
+
+            List<Nagrada> osvojeneNagrade = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Nagrada>(query).ToList();
+            
+            return osvojeneNagrade;
+        }
+
+            
+        public static IList<Firma> vratiSveFirmeKojeSuOsvojileNagradu(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+
+            var query = new CypherQuery("match (f:Firma)-[r:OSVOJILA]->(n:Nagrada{id:{id}}) return f",
+                queryDict, CypherResultMode.Set);
+
+            List<Firma> osvojeneNagrade = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Firma>(query).ToList();
+
+            return osvojeneNagrade;
+        }
+
+        public static void dodeliNagraduFirmi(int idFirme, int idNagrade)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+            queryDict.Add("idNagrade", idNagrade);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}}), (n:Nagrada{id:{idNagrade}})" +
+                " create (f)-[r:OSVOJILA]-> (n) return f",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Firma>(query);
+        }
+
+        public static void oduzmiNagraduFirmi(int idFirme, int idNagrade)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+            queryDict.Add("idNagrade", idNagrade);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}})-[r:OSVOJILA]->" +
+                "(n:Nagrada{id:{idNagrade}}) delete r",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+        public static void oduzmiSveNagradeFirmi(int idFirme)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}})-[r:OSVOJILA]->" +
+                "(n:Nagrada) delete r",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+        #endregion
     }
+
 }

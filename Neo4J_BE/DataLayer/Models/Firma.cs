@@ -11,11 +11,6 @@ namespace DataLayer.Models
         public string adresa { get; set; }
         public string PIB { get; set; }
 
-        public IList<Projekat> Projekti { get; set; }
-
-        public Firma()
-        {
-            Projekti = new List<Projekat>();
-        }
+        public IList<Nagrada> osvojeneNagrade { get; set; }
     }
 }
