@@ -5230,23 +5230,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dusan\\.nuget\\packages\\": {},
+    "C:\\Users\\Korisnik\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\4.godina\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "F:\\!Ja\\Razno\\Lena\\elfak IV godina\\VII semstar\\napredne baze podataka\\IT yellow pages\\Git\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\4.godina\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
-      "packagesPath": "C:\\Users\\dusan\\.nuget\\packages\\",
-      "outputPath": "C:\\4.godina\\Napredne baze podataka\\Neo4J_FE\\Neo4J_BE\\DataLayer\\obj\\",
+      "projectPath": "F:\\!Ja\\Razno\\Lena\\elfak IV godina\\VII semstar\\napredne baze podataka\\IT yellow pages\\Git\\Neo4J_BE\\DataLayer\\DataLayer.csproj",
+      "packagesPath": "C:\\Users\\Korisnik\\.nuget\\packages\\",
+      "outputPath": "F:\\!Ja\\Razno\\Lena\\elfak IV godina\\VII semstar\\napredne baze podataka\\IT yellow pages\\Git\\Neo4J_BE\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\dusan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Korisnik\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5258,6 +5258,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -5269,6 +5270,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Neo4jClient": {
             "target": "Package",
@@ -5290,7 +5292,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

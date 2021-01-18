@@ -76,3 +76,29 @@ E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netc
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.dll
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.pdb
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.genruntimeconfig.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\appsettings.Development.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\appsettings.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.exe
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.deps.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.runtimeconfig.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.runtimeconfig.dev.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.pdb
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4j.Driver.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4jClient.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\DataLayer.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\DataLayer.pdb
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csprojAssemblyReference.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.AssemblyInfoInputs.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.AssemblyInfo.cs
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csproj.CoreCompileInputs.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.MvcApplicationPartsAssemblyInfo.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\staticwebassets\Neo4J_BE.StaticWebAssets.Manifest.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\staticwebassets\Neo4J_BE.StaticWebAssets.xml
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\scopedcss\bundle\Neo4J_BE.styles.css
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.RazorTargetAssemblyInfo.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csproj.CopyComplete
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.pdb
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.genruntimeconfig.cache

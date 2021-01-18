@@ -805,10 +805,15 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("id", id);
 
+            //brisanje svih veza nagrada-firma
+            var query2 = new CypherQuery("match (f:Firma)-[r:OSVOJILA]->(n:Nagrada{id:{id}})" +
+                " delete r", queryDict, CypherResultMode.Set);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query2);
+
             var query = new CypherQuery("MATCH(n: Nagrada) WHERE n.id= {id} DELETE n",
                                                             queryDict, CypherResultMode.Set);
 
-            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query); 
         }
         #endregion
 

@@ -25,3 +25,12 @@ E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\net
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 E:\IV godina RI\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
+F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
