@@ -48,19 +48,22 @@ function DodajProjekatFirmi({nazivProjekta}) {
     if(loading) return <Spinner/>
     return (
         
-     <form onSubmit={()=>handleSubmit()}>
-            <p>Dodaj datom projektu novu firmu</p>
-            <select value={nazivFirme} onChange={(ev)=>setNazivFirme(ev.target.value)}>
+     <form class="card" onSubmit={()=>handleSubmit()}>
+         <div class="card-body">
+            <h3>Dodaj datom projektu novu firmu</h3>
+            <select class="form-control" value={nazivFirme} onChange={(ev)=>setNazivFirme(ev.target.value)}>
             <option key={"svi"} value={" "}></option>
             {firme.map(f=>{
                 return <option key={f.id} value={f.naziv}>{f.naziv}</option>
             })}
             </select>
-            
+            <br></br>
             <label>Datum od:<DateTimePicker onChange={(ev)=>setDatumOd(ev)} value={datumOd}/></label>
-                <label>Datum do:<DateTimePicker onChange={(ev)=>setDatumDo(ev)} value={datumDo}/></label>
+            <label>Datum do:<DateTimePicker onChange={(ev)=>setDatumDo(ev)} value={datumDo}/></label>
 
-           <button>Dodaj</button>
+            <br></br>
+           <button type="submit" class="btn btn-primary">Dodaj</button>
+           </div>
     </form>
                 
     )

@@ -16,7 +16,9 @@ function Firme() {
     console.log(firme);
     return (
         <div>
-            <button onClick={()=>setShowForm(!showForm)}>Kreiraj firmu</button>
+            <div style={{textAlign:"center", marginTop:"20px"}}>
+                <button type="submit" class="btn btn-primary" onClick={()=>setShowForm(!showForm)}>Kreiraj firmu</button>
+            </div>
             {showForm&& <CreateFirma/>}
             {firme.map(f=>
             {

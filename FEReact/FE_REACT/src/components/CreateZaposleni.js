@@ -21,21 +21,53 @@ function CreateZaposleni(){
     if(loading) return <Spinner/>
 
     return(
-        <div>
+        <div class="float-container" style={{textAlign:"center"}}>
             {showSpinner && <Spinner/>}
-            <label>Ime </label><input type="text" onChange={(event)=>setNewIme(event.target.value)}/>{(newIme.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
-            <label>Prezime </label><input type="text" onChange={(event)=>setNewPrezime(event.target.value)}/>{(newPrezime.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
-            <label>Starost </label><input type="number" onChange={(event)=>setNewStarost(event.target.value)}/>{(newStarost.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
-            <label>Pol </label> <input name="pol" type="radio" value="M" checked={true} onChange={(event)=>setNewPol(event.target.value)} />M <input name="pol" type="radio" value="Z"  onChange={(event)=>setNewPol(event.target.value)} />Z<br/>
-            <label>Firma: </label><select onChange={(event)=>setIdFirme(event.target.value)}> {alertFirma && <p style={{color:"red", display:"inline"}}>*Izaberite firmu!</p>}
-                <option value="-1">Izaberi zeljenu firmu</option>
-                {firme.map(firma=>{
-                    return <option value={firma.id}>{firma.naziv}</option>  
-                })}
-            </select><br/>
-            <label>Datum od:</label> <input type="text"onChange={(event)=>setDatumOd(event.target.value)}/><br/>
-            <label>Pozicija:</label> <input type="text" onChange={(event)=>setPozicija(event.target.value)}/><br/>
-            <button disabled={((newIme.length>0) && (newPrezime.length>0) && (newStarost.length>0)) ? false : true} onClick={async ()=>await CreateZaposleniFunction()}>Dodaj zaposlenog</button><br/><br/>
+            <div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Ime </label>
+                    <input class="form-control" type="text" onChange={(event)=>setNewIme(event.target.value)}/>{(newIme.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Prezime </label>
+                    <input class="form-control" type="text" onChange={(event)=>setNewPrezime(event.target.value)}/>{(newPrezime.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Starost </label>
+                    <input class="form-control" type="number" onChange={(event)=>setNewStarost(event.target.value)}/>{(newStarost.length==0)&&<p style={{color:"red", display:"inline"}}>*Ovo polje je obavezno!</p>}<br/>
+                </div>
+                <div class="float-child" style={{width:"10%"}}>
+                    <label>Pol:</label> 
+                    <br/>
+                    <input name="pol" type="radio" value="M" checked={true} onChange={(event)=>setNewPol(event.target.value)} />M <br/>
+                    <input style={{marginBottom:"50px"}} name="pol" type="radio" value="Z"  onChange={(event)=>setNewPol(event.target.value)} />Z<br/>
+                    <br/>
+                </div>
+                
+            </div>
+            <br/>
+            <div class="float-container" style={{textAlign:"center"}}>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Firma:</label><br/>
+                    <select class="form-control" onChange={(event)=>setIdFirme(event.target.value)}> {alertFirma && <p style={{color:"red", display:"inline"}}>*Izaberite firmu!</p>}
+                        <option value="-1">Izaberi zeljenu firmu</option>
+                        {firme.map(firma=>{
+                            return <option value={firma.id}>{firma.naziv}</option>  
+                        })}
+                    </select><br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Datum od:</label> <br/>
+                    <input class="form-control" type="text"onChange={(event)=>setDatumOd(event.target.value)}/><br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Pozicija:</label><br/>
+                    <input class="form-control" type="text" onChange={(event)=>setPozicija(event.target.value)}/><br/>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" disabled={((newIme.length>0) && (newPrezime.length>0) && (newStarost.length>0)) ? false : true} onClick={async ()=>await CreateZaposleniFunction()}>Dodaj zaposlenog</button><br/><br/>
+                </div>
+            </div>
         </div>
     )
 

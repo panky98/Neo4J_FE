@@ -35,19 +35,21 @@ function DodajProjekatZaposlenom({firmaId, projekatId}) {
     if(error) throw error;
     if(loading) return <Spinner/>
     return (
-        <form>
-            <p>Dodaj zaposlenog na projektu</p>
-            <select value={zaposleniNaProjektu} onChange={(e)=>setZaposleniNaProjektu(e.target.value)}>
+        <form class="card-body">
+            <div class="card-title">
+            <h4>Dodaj zaposlenog na projektu</h4>
+            <select class="form-control" value={zaposleniNaProjektu} onChange={(e)=>setZaposleniNaProjektu(e.target.value)}>
                 <option key={"svi"} value={" "}></option>
                 {zaposleni.map(z=>{
                     return <option key={z.id} value={z.id}>{z.ime} {z.prezime}</option>
                 })}
             </select>
-
+            <br></br>
             <label>Datum od:<DateTimePicker onChange={(ev)=>setDatumOd(ev)} value={datumOd}/></label>
             <label>Datum do:<DateTimePicker onChange={(ev)=>setDatumDo(ev)} value={datumDo}/></label>
-
-           <button onClick={()=>handleSubmit()}>Dodaj</button>
+            <br></br>
+           <button type="submit" class="btn btn-primary" onClick={()=>handleSubmit()}>Dodaj</button>
+           </div>
         </form>
     )
 }

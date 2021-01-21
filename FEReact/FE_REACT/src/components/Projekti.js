@@ -46,26 +46,34 @@ function Projekti(id) {
     
     return (
         <div>
-            <NapraviProjekat/>
-            <p>Izaberite tip projekta:</p>
-            <select value={tipProjekta} onChange={(ev)=>setTipProjekta(ev.target.value)}>
+            <div class="float-container">
+                <NapraviProjekat/>
+                <div class="float-child">
+                    <h3>Sortiranje - izaberite tip projekta:</h3>
+                    <select style={{width:"80%"}} class="form-control" value={tipProjekta} onChange={(ev)=>setTipProjekta(ev.target.value)}>
 
-                <option key={"svi"} value={"svi"}></option>
-                <option key={"gotov"} value={"gotov"}>gotov</option>
-                <option key={"trenutno"} value={"trenutno"}>trenutno</option>
-            </select>
+                        <option key={"svi"} value={"svi"}>Svi projekti</option>
+                        <option key={"gotov"} value={"gotov"}>Gotovi</option>
+                        <option key={"trenutno"} value={"trenutno"}>Trenutno aktivni</option>
+                    </select>
+                    <div  style={{height:"200px"}}>
+
+                    </div>
+                </div>
+            </div>
+            
             {projekti.map(p=>
             {
                 return(
-                    <div key={p.id}>
-                        <h2>{p.naziv}</h2>
-                        <p>Pocetak:{p.datum_od}</p>
-                        {(p.datum_do!=="0001-01-01T00:00:00" && p.datum_do!=="1901-01-31T23:00:00Z") ?  <p>Kraj: {p.datum_do}</p> : <p>Nije gotov</p>}
-                        <Link to={`/projekti/${p.id}`} className="btn">Saznaj vise</Link>
-                        <button onClick={()=>obrisiProjekat(p.id)}>Obrisi projekat</button>
+                    <div class="float-child card" key={p.id} style={{marginLeft:"20px", marginTop:"20px", width : "30%", display: "flex", flexDirection : "column"}}>
+                        <div class="card-body">
+                            <h2 class="card-title" style={{color:"#3399FF"}} >{p.naziv}</h2>
+                            <p>Pocetak: {p.datum_od}</p>
+                            {(p.datum_do!=="0001-01-01T00:00:00" && p.datum_do!=="1901-01-31T23:00:00Z") ?  <p>Kraj: {p.datum_do}</p> : <p>Nije gotov</p>}
+                            <Link to={`/projekti/${p.id}`} className="btn">Saznaj vise</Link>
+                            <button type="submit" class="btn btn-primary" onClick={()=>obrisiProjekat(p.id)}>Obrisi projekat</button>
+                        </div>
                     </div>
-
-                //return <Projekat key={p.id} projekat={p} firme={firme}/>
             )})}
         
         </div>

@@ -5,31 +5,32 @@ import { Link, NavLink } from "react-router-dom";
 function NavBar() {
     return (
 
-      <nav>
+      <div>
+      <nav class="navbar navbar-light bg-light">
         <ul>
-          <li>
+          <li class="navbar-brand">
             <Link to="/">
-                Home
+                IT yellow pages
             </Link>
           </li>
-          <li>
+          <li class="navbar-brand">
             <NavLink to="/projekti">
               Projekti
             </NavLink>
           </li>
-          <li>
+          <li class="navbar-brand">
             <NavLink to="/firme">
               Firme
             </NavLink>
           </li>
 
-          <li>
+          <li class="navbar-brand">
             <NavLink to="/zaposleni">
               Zaposleni
             </NavLink>
           </li>
 		  
-		  <li>
+		  <li class="navbar-brand">
             <NavLink to="/nagrade">
               Nagrade
             </NavLink>
@@ -37,7 +38,7 @@ function NavBar() {
           
         </ul>
       </nav>
-
+      </div>
     )
 }
 

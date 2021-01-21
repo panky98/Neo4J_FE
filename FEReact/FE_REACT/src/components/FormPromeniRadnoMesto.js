@@ -17,13 +17,18 @@ function FormPromeniRadnoMesto({idZaposlenog}) {
     return(
         <div>
             {showSpinner && <Spinner/>}
-            <select onChange={(event)=>setSelectedFirma(event.target.value)}>
+            <select style = {{margin:"10px 0 10px 0"}} class="form-control" onChange={(event)=>setSelectedFirma(event.target.value)}>
                 <option value="-1">Izaberi kompaniju</option>
                 <option value="-2">Nezaposlen</option>
                 {firme.map(firma=>{
                     return <option key={firma.id} value={firma.id}>{firma.naziv}</option>
                 })}
-            </select> <label>Pozicija: </label> <input type="text" onChange={(event)=>setNewPozicija(event.target.value)}/> <button onClick={async ()=>await Change()}>Promeni</button><br/>
+            </select> 
+            <label>Pozicija: </label> 
+            <input class="form-control" type="text" onChange={(event)=>setNewPozicija(event.target.value)}/> 
+            <br/>
+            <button type="submit" class="btn btn-primary" onClick={async ()=>await Change()}>Promeni</button>
+            <br/>
             {showAlert && <p style={{color:"red", display:"inline"}}>*Niste izabrali firmu!</p>}
         </div>
     )

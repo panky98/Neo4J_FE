@@ -6,13 +6,14 @@ function Zaposlen({zaposlen}) {
     const [showSpinner,setShowSpinner]=useState(false);
     const [showForm,setShowForm]=useState(false);
     return(
-        <div>
+        <div class="float-child card" style={{width:"30%", marginLeft:"20px", marginTop:"20px"}}>
+            <div class="card-body">
               {showSpinner && <Spinner/>}
-              <label>Ime: {zaposlen.ime}</label><br/>
-              <label>Prezime: {zaposlen.prezime}</label><br/>
-              <label>Pol: {zaposlen.pol}</label><br/>
-              <label>Starost: {zaposlen.starost}</label><br/>
-              <label>Trenutna kompanija: {(zaposlen.istorija.find((el)=>el.datum_do==="")!=null && zaposlen.istorija.find((el)=>el.datum_do==="")!=undefined)?zaposlen.istorija.find((el)=>el.datum_do==="").naziv:"Nezaposlen"}</label>
+              <h4 style={{color:"#3399FF", textAlign:"center"}}>{zaposlen.ime}  {zaposlen.prezime}</h4>
+             
+              <label>Pol: </label> <label style={{fontStyle:"italic"}}>{zaposlen.pol}</label><br/>
+              <label>Starost: </label> <label style={{fontStyle:"italic"}}>{zaposlen.starost}</label><br/>
+              <label>Trenutna kompanija: </label> <label style={{fontStyle:"italic"}}>{(zaposlen.istorija.find((el)=>el.datum_do==="")!=null && zaposlen.istorija.find((el)=>el.datum_do==="")!=undefined)?zaposlen.istorija.find((el)=>el.datum_do==="").naziv:"Nezaposlen"}</label>
               <br/>
               <label>Istorija rada:</label>
               <ul>
@@ -20,9 +21,10 @@ function Zaposlen({zaposlen}) {
                       return <li >Firma: {el.naziv} Datum od:  {el.datum_od} Datum do: {el.datum_do}</li>
                   })}
               </ul><br/>
-              <button onClick={()=>setShowForm(!showForm)}>Promeni radno mesto:</button><br/>
+              <button type="submit" class="btn btn-primary" onClick={()=>setShowForm(!showForm)}>Promeni radno mesto:</button><br/>
               {showForm && <FormPromeniRadnoMesto idZaposlenog={zaposlen.id}/>}
               <br/><br/>
+            </div>
         </div>
     )
 }

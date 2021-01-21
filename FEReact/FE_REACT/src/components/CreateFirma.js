@@ -13,10 +13,24 @@ function CreateFirma(){
     return(
         <div>
             {showSpinner && <Spinner/>}
-            <label>PIB: </label> <input type="number" onChange={(event)=>setNewPib(event.target.value)}/> {(newPib.length!=13)&&<p style={{color:"red", display:"inline"}}>Duzina PIB-a mora biti 13 karaktera!</p>}<br/>
-            <label>Naziv: </label> <input type="text" onChange={(event)=>setNewNaziv(event.target.value)}/><br/>
-            <label>Adresa: </label> <input type="text" onChange={(event)=>setNewAdresa(event.target.value)}/><br/> <br/>
-            <button disabled={((newPib.length==13) && (newNaziv.length>0) && (newAdresa.length>0)) ? false : true} onClick={async ()=>{await CreateCompany();}}>Dodaj</button>
+            <div class="float-container" style={{textAlign:"center"}}>
+                <div class="float-child" style={{width:"30%"}}>  
+                    <label>PIB: </label> 
+                    <input class="form-control" type="number" onChange={(event)=>setNewPib(event.target.value)}/> {(newPib.length!=13)&&<p style={{color:"red", display:"inline"}}>Duzina PIB-a mora biti 13 karaktera!</p>}<br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Naziv: </label> 
+                    <input class="form-control" type="text" onChange={(event)=>setNewNaziv(event.target.value)}/><br/>
+                </div>
+                <div class="float-child" style={{width:"30%"}}>
+                    <label>Adresa: </label> 
+                    <input class="form-control" type="text" onChange={(event)=>setNewAdresa(event.target.value)}/><br/> <br/>
+                </div>
+            </div>
+            <br/>
+            <div style={{textAlign:"center"}}>
+                <button type="submit" class="btn btn-primary" disabled={((newPib.length==13) && (newNaziv.length>0) && (newAdresa.length>0)) ? false : true} onClick={async ()=>{await CreateCompany();}}>Dodaj</button>
+            </div>
         </div>
     )
 

@@ -8,21 +8,23 @@ function Firma({firma}) {
     const [showSpinner,setShowSpinner]=useState(false);
 
     return(
-        <div>
+        <div class="float-child card" style={{width:"30%", marginLeft:"20px", marginTop:"20px"}}>
+            <div class="card-body">
               {showSpinner && <Spinner/>}
-              <h1>{firma.naziv} <a href="#"><span className="material-icons" style={{"color":"red"}} onClick={async ()=>await ObrisiFirmu()}>delete</span></a></h1>  
+              <h1 style={{color:"#3399FF"}}>{firma.naziv} <a href="#"><span className="material-icons" style={{"color":"red"}} onClick={async ()=>await ObrisiFirmu()}>delete</span></a></h1>  
               <label>PIB: {firma.pib}</label><br/>
               <label>Adresa: {firma.adresa}</label><br/>
-              <select onChange={async (event)=>await onChange(event)}>
-                  <option value={0}>Izaberi opciju</option>
+              <select class="form-control" onChange={async (event)=>await onChange(event)}>
+                  <option value={0}>Prikazi zaposlene</option>
                   <option value={1}>Svi zaposleni ikad</option>
                   <option value={2}>Trenutno zaposleni</option>
               </select>
-              <ul>
+              <ul class="list-group list-group-flush">
               {zaposleniFirme!=[] && zaposleniFirme.map(zaposleni=>{
-                  return <li key={zaposleni["id"]}>{zaposleni["ime"] + " "+ zaposleni["prezime"]}</li>
+                  return <li class="list-group-item" key={zaposleni["id"]}>{zaposleni["ime"] + " "+ zaposleni["prezime"]}</li>
               })}
               </ul>
+            </div>
         </div>
     )
 
