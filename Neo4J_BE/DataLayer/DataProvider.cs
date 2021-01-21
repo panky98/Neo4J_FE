@@ -250,8 +250,11 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("idFirme", idFirme);
 
-            var query = new Neo4jClient.Cypher.CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
+            var query = new CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
                                                             queryDict, CypherResultMode.Set);
+
+            //obrisu nagrade za firmu
+            oduzmiSveNagradeFirmi(idFirme);
 
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
