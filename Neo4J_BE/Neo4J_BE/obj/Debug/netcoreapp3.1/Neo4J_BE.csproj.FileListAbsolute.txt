@@ -102,3 +102,29 @@ F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow p
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.dll
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.pdb
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.genruntimeconfig.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\appsettings.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.exe
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.deps.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.runtimeconfig.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.runtimeconfig.dev.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4J_BE.pdb
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4j.Driver.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Neo4jClient.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\DataLayer.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\bin\Debug\netcoreapp3.1\DataLayer.pdb
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csprojAssemblyReference.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.AssemblyInfoInputs.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.AssemblyInfo.cs
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csproj.CoreCompileInputs.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.MvcApplicationPartsAssemblyInfo.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.RazorTargetAssemblyInfo.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.csproj.CopyComplete
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\staticwebassets\Neo4J_BE.StaticWebAssets.Manifest.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\staticwebassets\Neo4J_BE.StaticWebAssets.xml
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.pdb
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\Neo4J_BE\obj\Debug\netcoreapp3.1\Neo4J_BE.genruntimeconfig.cache

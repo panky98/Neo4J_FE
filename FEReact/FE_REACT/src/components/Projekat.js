@@ -16,11 +16,12 @@ function Projekat() {
     }).then(p=>{
         if(p.ok){
             console.log("Uspesno obrisano!");
+            window.location.reload();
         }
     }).catch(exc=>{
         console.log(exc);
     });
-    window.location.reload(false);
+    window.location.reload();
     }
 
     async function obrisiPripada(idFirme, idProjekta)
@@ -31,11 +32,12 @@ function Projekat() {
     }).then(p=>{
         if(p.ok){
             console.log("Uspesno obrisano!");
+            window.location.reload();
         }
     }).catch(exc=>{
         console.log(exc);
     });
-    window.location.reload(false);
+    window.location.reload();
     }
 
     const {id}=useParams();

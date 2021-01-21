@@ -26,7 +26,7 @@ function DodajProjekatZaposlenom({firmaId, projekatId}) {
     window.location.reload(false);
     }
 
-    const {data:zaposleni, loading, error}=useFetch("Zaposleni/vratiSveZaposlenePrekoIdFirme/"+firmaId);
+    const {data:zaposleni, loading, error}=useFetch("Zaposleni/vratiSveZaposlenePrekoIdFirmeTrenutnoZaposleni/"+firmaId);
 
     const [zaposleniNaProjektu, setZaposleniNaProjektu]=useState(-1);
     const [datumOd, setDatumOd]=useState(new Date());

@@ -538,7 +538,17 @@ namespace DataLayer
 
             var query = new Neo4jClient.Cypher.CypherQuery("match(f: Firma { id: {idFirme}})-[r: PRIPADA] - (p: Projekat { id: {idProjekta}}) delete r",
                                                             queryDict, CypherResultMode.Set);
-            ObrisiRadiNaZaDatiProjekat(idFirme);
+
+            //ObrisiRadiNaZaZaposlenogIProjekat
+
+            //vrati sve zaposlene iz te firme na tom projektu...vratiTrenutnoZaposleneFirme
+            IList<Zaposleni> zaposleni = DataLayer.DataProvider.vratiTrenutnoZaposleneFirme(idFirme);
+            foreach(var z in zaposleni)
+            {
+                ObrisiRadiNaZaZaposlenogIProjekat(z.id, idProjekta);
+            }
+
+            //ObrisiRadiNaZaDatiProjekat(idProjekta);
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
         public static void ObrisiPripada(int id)

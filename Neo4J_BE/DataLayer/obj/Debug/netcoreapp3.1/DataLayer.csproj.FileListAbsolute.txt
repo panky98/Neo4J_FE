@@ -34,3 +34,12 @@ F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow p
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
 F:\!Ja\Razno\Lena\elfak IV godina\VII semstar\napredne baze podataka\IT yellow pages\Git\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.deps.json
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\bin\Debug\netcoreapp3.1\DataLayer.pdb
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csprojAssemblyReference.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfoInputs.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.AssemblyInfo.cs
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.csproj.CoreCompileInputs.cache
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.dll
+C:\4.godina\Napredne baze podataka\Neo4J_FE\Neo4J_BE\DataLayer\obj\Debug\netcoreapp3.1\DataLayer.pdb

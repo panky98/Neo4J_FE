@@ -31,11 +31,12 @@ function DodajProjekatFirmi({nazivProjekta}) {
     }).then(p=>{
         if(p.ok){
             console.log("Uspesno dodato!");
+            window.location.reload();
         }
     }).catch(exc=>{
         console.log(exc);
     });
-    window.location.reload(false);
+    window.location.reload();
     }
 
     const {data:firme, loading, error}=useFetch("Firma/vratiSveFirme");
