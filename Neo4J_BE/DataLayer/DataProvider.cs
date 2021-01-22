@@ -250,7 +250,7 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("idFirme", idFirme);
 
-            var query = new CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
+            var query = new CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DETACH DELETE n",
                                                             queryDict, CypherResultMode.Set);
 
             //obrisu nagrade za firmu
@@ -411,7 +411,7 @@ namespace DataLayer
 
             queryDict.Add("id", id);
 
-            var query = new Neo4jClient.Cypher.CypherQuery("MATCH(p: Projekat) WHERE p.id= {id} DELETE p",
+            var query = new Neo4jClient.Cypher.CypherQuery("MATCH(p: Projekat) WHERE p.id= {id} DETACH DELETE p",
                                                             queryDict, CypherResultMode.Set);
 
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
@@ -913,6 +913,161 @@ namespace DataLayer
         }
 
         #endregion
+
+        #region Komentar
+        public static IList<Komentar> vratiSveKomentare()
+        {
+            var query = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Komentar) RETURN n",
+                                       new Dictionary<string, object>(), CypherResultMode.Set);
+
+            List<Komentar> komentari = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Komentar>(query).ToList();
+
+            return komentari;
+        }
+
+        public static String vratiKomSaId(int idK)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", idK);
+            var query = new Neo4jClient.Cypher.CypherQuery("MATCH (n:Komentar)  WHERE n.id={id} RETURN n",
+                                   queryDict, CypherResultMode.Set);
+
+            // List<Firma> firme = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Firma>(query).ToList();
+            Komentar kom = ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Komentar>(query).First();
+
+            return kom.text;
+        }
+
+        public static void dodajKomentar(Komentar kom)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", getMaxId() + 1);
+            queryDict.Add("text", kom.text);
+            DateTime onlyDate = kom.datum.Date;
+            queryDict.Add("datum", kom.datum.Date.ToShortDateString());
+
+            var query = new CypherQuery("create (n: Komentar { id:{id}, text:{text}, datum:{datum}}) return n",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Komentar>(query);
+        }
+
+        public static void izmeniKomentar(Komentar kom)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", kom.id);
+            queryDict.Add("text", kom.text);
+            queryDict.Add("datum", kom.datum);
+
+            var query = new CypherQuery("MATCH (n:Komentar {id:{id}}) SET n={id:{id},text: {text}, datum:{datum}} return n",
+                                                queryDict, CypherResultMode.Set);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+        public static void obrisiKomentar(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+
+            var query = new CypherQuery("MATCH(n: Komentar) WHERE n.id= {id} detach delete n",
+                                                            queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+
+        #endregion
+
+        #region ImaKomentar
+
+        public static IList<Komentar> vratiKomSvihFirmi()
+        {
+            var query = new CypherQuery("match (f:Firma)-[r:IMA_KOMENTAR]->(n:Komentar) return n",
+                 new Dictionary<string, object>(), CypherResultMode.Set);
+
+            List<Komentar> dodeljenikom = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Komentar>(query).ToList();
+
+            foreach (Komentar kom in dodeljenikom)
+            {
+                kom.firme = (List<Firma>)vratiSveFirmeKojeImajuKomentar(kom.id);
+            }
+
+            return dodeljenikom;
+        }
+
+        public static IList<Firma> vratiSveFirmeKojeImajuKomentar(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+
+            var query = new CypherQuery("match (f:Firma)-[r:IMA_KOMENTAR]->(n:Komentar{id:{id}}) return f",
+                queryDict, CypherResultMode.Set);
+
+            List<Firma> firmskom = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Firma>(query).ToList();
+
+            return firmskom;
+        }
+
+
+        public static IList<Komentar> vratiSveKomentareOdredjeneFirme(int id)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("id", id);
+
+            var query = new CypherQuery("match (f:Firma{id:{id}})-[r:IMA_KOMENTAR]->(n:Komentar) return n",
+                queryDict, CypherResultMode.Set);
+
+            List<Komentar> komentari = ((IRawGraphClient)Session.Client)
+                .ExecuteGetCypherResults<Komentar>(query).ToList();
+
+            return komentari;
+        }
+
+
+        public static void dodeliKomentarFirmi(int idFirme, int idKom)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+            queryDict.Add("idKom", idKom);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}}), (n:Komentar{id:{idKom}})" +
+                " create (f)-[r:IMA_KOMENTAR]-> (n) return f",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteGetCypherResults<Firma>(query);
+        }
+
+        public static void obrisiKomFirme(int idFirme, int idKom)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+            queryDict.Add("idNagrade", idKom);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}})-[r:IMA_KOMENTAR]->" +
+                "(n:Komentar{id:{idKom}}) delete r",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+        public static void obrisiSveKomFirme(int idFirme)
+        {
+            Dictionary<string, object> queryDict = new Dictionary<string, object>();
+            queryDict.Add("idFirme", idFirme);
+
+            var query = new CypherQuery("match (f:Firma{id:{idFirme}})-[r:IMA_KOMENTAR]->" +
+                "(n:Komentar) delete r",
+                queryDict, CypherResultMode.Set);
+
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+        }
+
+
+
+        #endregion
+
     }
 
 }

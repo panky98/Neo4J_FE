@@ -41,7 +41,13 @@ function Firma({firma}) {
        }).then(p=>{
            if(p.ok){
                p.json().then(data=>{
-                   setZaposleneFirme(data);
+                let lista=new Array();
+                data.forEach(el=>{
+                    if(lista.find(value=>value.id==el.id)==undefined || lista.find(value=>value.id==el.id)==null){
+                        lista.push(el);
+                    }
+                })
+                setZaposleneFirme(lista);
                })
            }
        }).catch(ex=>{
@@ -54,7 +60,13 @@ function Firma({firma}) {
         }).then(p=>{
             if(p.ok){
                 p.json().then(data=>{
-                    setZaposleneFirme(data);
+                    let lista=new Array();
+                    data.forEach(el=>{
+                        if(lista.find(value=>value.id==el.id)==undefined || lista.find(value=>value.id==el.id)==null){
+                            lista.push(el);
+                        }
+                    })
+                    setZaposleneFirme(lista);
                 })
             }
         }).catch(ex=>{
