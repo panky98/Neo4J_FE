@@ -12,9 +12,10 @@ namespace DataLayer
             {
                 if (_client == null)
                 {
-                    _client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "mojasifra");
+                    _client = new GraphClient(new Uri("http://localhost:7474/db/data"), "neo4j", "Petar@Pan1*2");
                     _client.Connect();
                 }
+                
                 return _client;
 
             }

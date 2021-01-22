@@ -24,21 +24,22 @@ function Nagrade() {
             <DodajNagradu pom={pom} promeniPom={promeniPom}/>
             {nagrade.map(n=>{
                 return(
-                    <div key={n.id}>
-                        <h2>{n.naziv}</h2>
-                        <p>Kategorija: {n.kategorija}</p>
-                        <p>Datum: {n.datum}</p>
+                    
+                    <div class="float-child card" style={{width:"30%", marginLeft:"20px", marginTop:"20px"}} key={n.id}>
+                        <div class="card-body">
+                            <h2 style={{color:"#3399FF"}}>{n.naziv}</h2>
+                            <label>Kategorija: </label><label style={{fontStyle:"italic"}}>{n.kategorija}</label>
+                            <br/>
+                            <label>Datum: </label><label style={{fontStyle:"italic"}}>{n.datum}</label>
 
-                        {/*n.firme.length===1 && <p>Firma: {n.firme[0].naziv}</p>*/}
-                        {n.firme.length>=1 && <ul>
-                            {n.firme.map(f=>{
-                                return <li>{f.naziv}</li>})}
-                        
-                        </ul>}
-                             
-                        
-
-                        
+                            {/*n.firme.length===1 && <p>Firma: {n.firme[0].naziv}</p>*/}
+                            <h5>Ko je sve osvojio nagradu</h5>
+                            {n.firme.length>=1 && <ul class="list-group list-group-flush">
+                                {n.firme.map(f=>{
+                                    return <li class="list-group-item">{f.naziv}</li>})}
+                            
+                            </ul>}
+                        </div>
                     </div>
                 )
             })}

@@ -28,15 +28,25 @@ function DodajNoviTipNagrade() {
     const [datumNagrade, setDatumNagrade]=useState(new Date());
     return (
         <div>
-        <p>Ovde mozete dodati novu nagradu:</p>
-        <form onSubmit={()=>handleSubmit()}>
-            <input placeholder="Naziv" value={nazivNagrade} onChange={(e)=>setNazivNagrade(e.target.value)}/>
-            <input placeholder="Kategorija" value={kategorijaNagarde} onChange={(e)=>setKategorijaNagrade(e.target.value)}/>
-            <label>Datum:<DateTimePicker onChange={(ev)=>setDatumNagrade(ev)} value={datumNagrade}/></label>
+            <div style={{textAlign:"center", marginTop:"20px"}}>
+                <h4>Ovde mozete dodati novu nagradu:</h4>
+            </div>
+            <form class="float-container" style={{textAlign:"center"}} onSubmit={()=>handleSubmit()}>
+                <div class="float-child" style={{width:"33%"}}> 
+                    <label>Naziv:</label><br/>
+                    <input class="form-control" value={nazivNagrade} onChange={(e)=>setNazivNagrade(e.target.value)}/>
+                </div>
+                <div class="float-child" style={{width:"33%"}}>
+                    <label>Kategorija:</label><br/>
+                    <input  class="form-control" value={kategorijaNagarde} onChange={(e)=>setKategorijaNagrade(e.target.value)}/>
+                </div>
+                <div class="float-child" style={{width:"33%"}}>
+                    <label>Datum:</label><br/>
+                    <DateTimePicker onChange={(ev)=>setDatumNagrade(ev)} value={datumNagrade}/>  
+                </div>
 
-            <button>Dodaj nagradu</button>
-
-        </form>
+                <button type="submit" class="btn btn-primary">Dodaj nagradu</button>
+            </form>
         </div>
     )
 }

@@ -16,11 +16,12 @@ function Projekat() {
     }).then(p=>{
         if(p.ok){
             console.log("Uspesno obrisano!");
+            window.location.reload();
         }
     }).catch(exc=>{
         console.log(exc);
     });
-    window.location.reload(false);
+    window.location.reload();
     }
 
     async function obrisiPripada(idFirme, idProjekta)
@@ -31,11 +32,12 @@ function Projekat() {
     }).then(p=>{
         if(p.ok){
             console.log("Uspesno obrisano!");
+            window.location.reload();
         }
     }).catch(exc=>{
         console.log(exc);
     });
-    window.location.reload(false);
+    window.location.reload();
     }
 
     const {id}=useParams();
@@ -58,32 +60,39 @@ function Projekat() {
     const dugmeFirme=prikaziFirme===true ? "Zatvorite firme" : "Prikazite firme";
     const dugmeZaposleni=prikaziZaposlene===true ? "Zatvorite zaposlene" : "Prikazite zaposlene"; 
         return(
-        <div >
-            <h2>{projekat.naziv}</h2>
-            <p>Opis:{projekat.opis}</p>
-            <p>Pocetak:{projekat.datum_od}</p>
-            {(projekat.datum_do!=="0001-01-01T00:00:00" && projekat.datum_do!=="1901-01-31T23:00:00Z") ?  <p>Kraj: {projekat.datum_do}</p> : <p>Nije gotov</p>}
-
+        <div style={{border:"1px solid lightgray", textAlign:"center"}}>
+            
+            <h2 style={{color:"#3399FF"}}>{projekat.naziv}</h2>
+            
+            <div>
+            <p class="float-child">Opis projekta: <div class="list-group-item">{projekat.opis}</div></p>
+            <p class="float-child">Pocetak: <div class="list-group-item">{projekat.datum_od}</div></p>
+            {(projekat.datum_do!=="0001-01-01T00:00:00" && projekat.datum_do!=="1901-01-31T23:00:00Z") ?  <p>Kraj: {projekat.datum_do}</p> : <p style={{fontStyle :"italic"}}>Da li je gotov? Nije gotov</p>}
+            </div>
+            <div  class="float-container">
+            <div class="float-child" style={{}}>
             {projekat.firmeNaProjektu.length!==0 ?
-             <button onClick={()=>setPrikaziFirme(!prikaziFirme)}>{dugmeFirme}</button> : 
-                    <p>Trenutno nijedna firma ne radi na projektu</p>}
+             <button type="submit" class="btn btn-primary" onClick={()=>setPrikaziFirme(!prikaziFirme)}>{dugmeFirme}</button> : 
+                    <p style={{fontStyle :"italic"}}>Trenutno nijedna firma ne radi na projektu</p>}
             {prikaziFirme && 
                 <div>{projekat.firmeNaProjektu.map(f=>{
                     return(
                         <form onSubmit={()=>obrisiPripada(f.id, projekat.id)}>
                             <p key={f.naziv}>{f.naziv}</p>
-                            <button >Obrisi firmu sa projekta</button>
+                            <button type="submit" class="btn btn-primary">Obrisi firmu sa projekta</button>
                             <DodajProjekatZaposlenom firmaId={f.id} projekatId={projekat.id}/>
                         </form>
                     )
                     })}
                 </div>
             }
+            </div>
+            <div class="float-child">
             <DodajProjekatFirmi nazivProjekta={projekat.naziv}/>
 
             {projekat.zaposleniNaProjektu.length!==0 ?
-                <button onClick={()=>setPrikaziZaposlene(!prikaziZaposlene)}>{dugmeZaposleni}</button> :
-                    <p>Trenutno nema nijednog zaposlenog na projektu</p>
+                <button type="submit" class="btn btn-primary" onClick={()=>setPrikaziZaposlene(!prikaziZaposlene)}>{dugmeZaposleni}</button> :
+                    <p style={{fontStyle :"italic"}}>Trenutno nema nijednog zaposlenog na projektu</p>
             }
             {prikaziZaposlene &&
                 <div>
@@ -94,7 +103,8 @@ function Projekat() {
                     })}
                 </div>
             }
-     
+            </div>
+         </div>
         </div>)
         
 }

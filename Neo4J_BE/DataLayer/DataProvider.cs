@@ -250,8 +250,11 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("idFirme", idFirme);
 
-            var query = new Neo4jClient.Cypher.CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
+            var query = new CypherQuery("MATCH(n: Firma) WHERE n.id= {idFirme} DELETE n",
                                                             queryDict, CypherResultMode.Set);
+
+            //obrisu nagrade za firmu
+            oduzmiSveNagradeFirmi(idFirme);
 
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
@@ -534,7 +537,17 @@ namespace DataLayer
 
             var query = new Neo4jClient.Cypher.CypherQuery("match(f: Firma { id: {idFirme}})-[r: PRIPADA] - (p: Projekat { id: {idProjekta}}) delete r",
                                                             queryDict, CypherResultMode.Set);
-            ObrisiRadiNaZaDatiProjekat(idFirme);
+
+            //ObrisiRadiNaZaZaposlenogIProjekat
+
+            //vrati sve zaposlene iz te firme na tom projektu...vratiTrenutnoZaposleneFirme
+            IList<Zaposleni> zaposleni = DataLayer.DataProvider.vratiTrenutnoZaposleneFirme(idFirme);
+            foreach(var z in zaposleni)
+            {
+                ObrisiRadiNaZaZaposlenogIProjekat(z.id, idProjekta);
+            }
+
+            //ObrisiRadiNaZaDatiProjekat(idProjekta);
             ((IRawGraphClient)Session.Client).ExecuteCypher(query);
         }
         public static void ObrisiPripada(int id)
@@ -802,10 +815,15 @@ namespace DataLayer
             Dictionary<string, object> queryDict = new Dictionary<string, object>();
             queryDict.Add("id", id);
 
+            //brisanje svih veza nagrada-firma
+            var query2 = new CypherQuery("match (f:Firma)-[r:OSVOJILA]->(n:Nagrada{id:{id}})" +
+                " delete r", queryDict, CypherResultMode.Set);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query2);
+
             var query = new CypherQuery("MATCH(n: Nagrada) WHERE n.id= {id} DELETE n",
                                                             queryDict, CypherResultMode.Set);
 
-            ((IRawGraphClient)Session.Client).ExecuteCypher(query);
+            ((IRawGraphClient)Session.Client).ExecuteCypher(query); 
         }
         #endregion
 

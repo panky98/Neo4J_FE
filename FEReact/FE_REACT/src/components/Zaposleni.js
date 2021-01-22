@@ -15,7 +15,9 @@ function Zaposleni(){
     console.log(zaposleni);
     return(
         <div>
-            <button onClick={()=>setShowForm(!showForm)}>Dodaj zaposlenog</button><br/><br/>
+            <div style={{textAlign:"center", marginTop:"20px"}}>
+                <button type="submit" class="btn btn-primary" onClick={()=>setShowForm(!showForm)}>Dodaj zaposlenog</button><br/><br/>
+            </div>
             {showForm && <CreateZaposleni/>}
             {zaposleni.map((zaposlen)=>{
                 return <Zaposlen key={zaposlen.id} zaposlen={zaposlen}/>
